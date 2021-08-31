@@ -1,0 +1,95 @@
+
+.header {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .2);
+    background-color: #FFF;
+    padding: 1rem 0 1rem 0;
+    position: relative;
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media screen and (max-width: 650px) {
+            flex-direction: column;
+        }
+        @media screen and (max-width: 500px) {
+            align-items: flex-start;
+        }
+
+        .logo {
+
+            h1 {
+                margin: 0 0 .3rem 0;
+                font-size: 1.8rem;
+    
+                span {
+                    color: $main-color;
+                }
+            }
+            p {
+                font-size: .65rem;
+                text-transform: uppercase;
+                color: $grey-color;
+            }
+        }
+        .navbar {
+            display: flex;
+            background: $main-color;
+
+            @media screen and (max-width: 650px) {
+                margin-top: 1rem;
+            }
+            @media screen and (max-width: 500px) {
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                overflow: hidden;
+                max-height: 0;
+                @include transition(all, .9s, linear);
+
+                &.open {
+                    max-height: 100vh;
+                }
+            }
+    
+            &-item {
+
+                &:not(:last-child) {
+                    border-right: 1px solid $grey-color;
+
+                    @media screen and (max-width: 500px) {
+                        border-right: none;
+                        border-bottom: 1px solid $grey-color;
+                    }
+                }
+                .navbar-link {
+                    color: $grey-color;
+                    font-size: .9rem;
+                    opacity: .8;
+                    padding: .5rem .8rem;
+                    @include transition(all, .15s, linear);
+
+                    @media screen and (max-width: 500px) {
+                        width: 100%;
+                        padding: .8rem 0;
+                    }
+
+                    &:hover {
+                        color: #FFF;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        .btn-toggle {
+            top: 1.5rem;
+            right: 1rem;
+            display: none;
+
+            @media screen and (max-width: 500px) {
+                display: flex;
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+
+/* 
+** Overlay Mixin
+*/
+@mixin overlay($position: absolute, $z-index: 1, $background: #000, $opacity: .5) {
+    position: $position;
+    z-index: $z-index;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($background, $opacity);
+}
+
+/* 
+** Prefixes Mixin
+*/
+@mixin prefixer($property, $value, $prefixes: ()) {
+    @each $prefix in $prefixes {
+        #{'-' + $prefix + '-' + $property}: $value;
+    }
+    #{$property}: $value;
+}
+
+/* 
+** Animations Mixin
+*/
+@mixin key-frames($name) {
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+/* 
+** Transitions Mixin
+*/
+@mixin transition($property, $duration, $timing) {
+    transition: $property $duration $timing;
+}

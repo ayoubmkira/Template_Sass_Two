@@ -1,0 +1,26 @@
+
+.header-with-border {
+    position: relative;
+
+    h2 {
+        margin: 4rem 0;
+        background-color: $main-color;
+        text-transform: uppercase;
+        padding: .5rem .8rem;
+        font-size: 1.2rem;
+        color: #FFF;
+        max-width: 250px;
+        margin-left: 1rem;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            height: 1px;
+            width: 100%;
+            background-color: $grey-color;
+            z-index: -1;
+        }
+    }
+}
